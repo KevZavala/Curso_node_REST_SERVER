@@ -2,7 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const routesUsuarios = require('../routes/user.routes');
 const routesAuth = require('../routes/auth.routes');
+const routesCategorias = require('../routes/categoria.routes');
+const routesProductos = require('../routes/producto.routes');
+const routesBusquedas = require('../routes/busqueda.routes');
+
 const { dbConnection } = require('../database/config');
+
+
 class Server {
 
 
@@ -36,6 +42,9 @@ class Server {
         
         this.app.use('/api/auth', routesAuth);
         this.app.use('/api/usuarios', routesUsuarios);
+        this.app.use('/api/categorias', routesCategorias);
+        this.app.use('/api/productos', routesProductos);
+        this.app.use('/api/busqueda',routesBusquedas);
         
     }
 
